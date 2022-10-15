@@ -1,3 +1,6 @@
+from typing import Dict
+
+
 # 4
 def function(seconds):
     def days():
