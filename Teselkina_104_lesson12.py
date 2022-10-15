@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import List
 
 
 # 4
@@ -58,6 +58,35 @@ def math_(x_: int) -> int:  # объявляем функцию с одним п
         return y
 
 
+# DZ
+def home_work(whatever):  # объявляем функцию с одним параметром
+    if type(whatever) == tuple:  # условие: если тип данных элемента - кортеж
+        len_words: List[int] = []  # переменная, которая ссылается на пустой список
+        for word in whatever:  # для каждого слова в кортеже
+            len_words.append(len(word))  # добавляем в конец списка значение длины слова
+        return len_words  # функция, которая возвращает словарь
+
+    elif type(whatever) == list:  # альтернативное условие
+        count_int: int = 0
+        count_letters: int = 0
+        for elem in whatever:  # цикл: для каждого элемента в списке
+            if type(elem) == int:  # условие: если тип данных объекта - целое число
+                count_int += 1  # добавляем 1 к значению переменной
+            elif type(elem) == str:  # альтернативное условие: если тип данных - стока
+                count_letters += len(elem)  # добавляем длину слова к значению переменной
+        return count_int, count_letters  # функция, которая возвращает два кортеж из двух значений
+
+    elif type(whatever) == int:  # альтернативное условие: усли тип даннх объекта - целое число
+        count_odd: int = 0
+        for integer in str(whatever):  # цикл: для каждой цифры в числе
+            if int(integer) % 2 != 0:  # если число нечетное
+                count_odd += 1  # прибавляем 1 к значению переменной
+        return count_odd  # функция, которая возвращает число
+
+    elif type(whatever) == str:  # если тип данных строка
+        return len(whatever)  # функция, которая возвращает количество букв
+
+
 # 4
 seconds_: int = int(input('Введите число секунд: '))  # переменная, которая ссылается на введенное с клавиатуры значение
 function(seconds_)  # вызываем функцию
@@ -73,3 +102,11 @@ sum_(num_)  # вызываем функцию
 # 7
 for x in range(-10, 11):  # цикл: для каждого числа в последовательности от -10 до 10
     print(math_(x))  # вывод в кансоль работы функции
+
+# DZ
+list_of_everything = [('letter', 'cat', 'dog', 'bird', 'worm', 'fall'),
+                      [1, 2, 3, 4, 5, 'a', 'd', 'c', 'winter', 'summer'],
+                      1234537999, 'my_string']  # переменная, которая ссылается на список с объектами разных типов
+
+for object_ in list_of_everything:  # цикл: для каждого объекта в списке
+    print(home_work(object_))  # вызываем функцию и передаем ей аргумент, выводим в кансоль работу функции
