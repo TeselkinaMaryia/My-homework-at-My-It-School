@@ -144,6 +144,18 @@ def anagram(first_word: str, second_word: str):
         return 'Слова не являются анаграммами'
 
 
+# 10
+def dict_mobile(string):
+    dict_mobile = {1: ('.', ',', '?', '!', ':'),
+                   2: ('A', 'B', 'C'), 3: ('D', 'E', 'F'), 4: ('G', 'H', 'I'), 5: ('J', 'K', 'L'), 6: ('M', 'N', 'O'),
+                   7: ('P', 'Q', 'R', 'S'), 8: ('T', 'U', 'V'), 9: ('W', 'X', 'Y', 'Z'), 0: (' ',)}
+    for letter in string.upper():
+        for keys, letter_comparison in dict_mobile.items():
+            for _ in letter_comparison:
+                if letter == _:
+                    print(str(keys) * (letter_comparison.index(_) + 1), end='')
+
+
 # 1
 growth_: float = float(input('Введите рост в м: '))
 weight_: float = float(input('Введите вес в кг: '))
@@ -186,3 +198,7 @@ print(count_list_in_list(all_list_))
 first_word_: str = input('Введите первое слово: ')
 second_word_: str = input('Введите второе слово: ')
 print(anagram(first_word_, second_word_))
+
+# 10
+string_ = input('Введите строку: ')
+dict_mobile(string_)
