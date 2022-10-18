@@ -188,6 +188,24 @@ def flattering(data_list: List) -> list:  # объявляем функцию с
     return l_1[::-1]  # возвращаем список в обратном порядке
 
 
+# 11/2
+def task_11(data_list_new: List):  # объявляем функцию с одним параметром (решение через рекурсию)
+    l_2 = []  # переменная, которая ссылается на пустой список
+
+    def flattering_1(index_1):  # объявляем функцию с одним параметром
+        while index_1 < len(data_list_new_):  # пока индекс меньше длины списка
+            if type(data_list_new[index_1]) != list:  # если тип объекла не список
+                l_2.append(data_list_new[index_1])  # добавляем объект в новый список
+                del data_list_new[index_1]  # удаляем элемент с индексом
+                flattering_1(index_1 + 1)  # вызываем функцию (увеличиваем индекс на один)
+            else:  # альтернативное условие
+                pop_elem = data_list_new.pop(index_1)  # удаляем элемент с индексом
+                data_list_new.extend(pop_elem)  # объединение списков
+
+    flattering_1(0)  # вызываем функцию и передаем аргумент 0
+    return l_2  # возвращаем новый список
+
+
 # 1
 growth_: float = float(input('Введите рост в м: '))
 weight_: float = float(input('Введите вес в кг: '))
@@ -238,3 +256,7 @@ dict_mobile(string_)
 # 11
 data_list_: List = [1, [2, 3], [4, [15, [6, 7]]], [[[8], 9], 10]]
 print(flattering(data_list_))
+
+# 11/2
+data_list_new_: List = [1, [2, 3], [4, [15, [6, 7]]], [[[8], 9], 10]]
+print(task_11(data_list_new_))
