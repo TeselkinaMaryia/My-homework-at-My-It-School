@@ -3,8 +3,9 @@ from typing import List, Dict
 
 # 1
 def index_(growth: float, weight: float):
-    index: float = weight / growth ** 2
-    if index < 16.5:
+    # объявляем функцию с двумя параметрами, котоая вычисляет индекс массиы тела и выводит в кунсоль результат
+    index: float = weight / growth ** 2  # переменная, которая ссылается на индекс массы тела
+    if index < 16.5:  # условие
         print(f'Ваш индекс массы тела - {index}. Крайний недостаточный вес')
     elif 16.5 < index < 18.4:
         print(f'Ваш индекс массы тела - {index}. Недостаток в весе')
@@ -21,7 +22,7 @@ def index_(growth: float, weight: float):
 
 
 # 2
-def figures(integer: int) -> str:
+def figures(integer: int) -> str:  # объявляем функцию с одним параметром, которая возвращает строку
     if integer == 3:
         return 'треугольник'
     elif integer == 4:
@@ -43,46 +44,55 @@ def figures(integer: int) -> str:
 
 
 # 3
-def next_day(day: int, month: str, year: int) -> tuple:
-    leap_year: List[int] = [i for i in range(1904, 3000, 4)]
-    if year in leap_year:
+def next_day(day: int, month: str, year: int) -> tuple:  # объявляем функцию с тремя параметрами и выводит кортеж
+    leap_year: List[int] = [i for i in range(1904, 3000, 4)]  # список с високосными годами
+
+    if year in leap_year:  # условие
         day_in_month: Dict[str:int] = {'январь': 31, 'февраль': 29, 'март': 31, 'апрель': 30, 'май': 31, 'июнь': 30,
                                        'июль': 31, 'август': 31, 'сентябрь': 30, 'октябрь': 31,
                                        'ноябрь': 30, 'декабрь': 31}
+        # словарь, содержащий пары: ключ(месяц) - замок(количество дней)
     else:
         day_in_month: Dict[str:int] = {'январь': 31, 'февраль': 28, 'март': 31, 'апрель': 30, 'май': 31, 'июнь': 30,
                                        'июль': 31,
                                        'август': 31, 'сентябрь': 30, 'октябрь': 31, 'ноябрь': 30, 'декабрь': 31}
-    if day < day_in_month[month]:
-        return day + 1, month, year
+
+    if day < day_in_month[month]:  # условие: если день меньше, чем количество дней в месяце
+        return day + 1, month, year  # возвращает день + 1 и неизмененный месяц и год
+
     elif day == day_in_month[month] and month != 'декабрь':
+        # альтернативное условие: если день = количеству дней в месяце (то есть последний) и месяц не декабрь
         list_month: List[str] = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль',
                                  'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
-        return 1, list_month[list_month.index(month) + 1], year
-    elif day == day_in_month[month] and month == 'декабрь':
-        return 1, 'январь', year + 1
+        return 1, list_month[list_month.index(month) + 1], year  # возвращает 1 число, следующий месяц и год
+
+    elif day == day_in_month[month] and month == 'декабрь':  # если день последний и месяц декабрь
+        return 1, 'январь', year + 1  # возвращает 1 января следующего года
 
 
 # 4
-def sum_delivery(product: int) -> float:
-    if product == 1:
-        return 10.95
-    else:
-        return 10.95 + 2.95 * (product - 1)
+def sum_delivery(product: int) -> float:  # объявляем функцию с одним параметром (количество заказанных товаров)
+    if product == 1:  # условие: если товар один
+        return 10.95  # возвращаем число
+    else:  # альтернативное условие (товаров больше одного)
+        return 10.95 + 2.95 * (product - 1)  # возвращаем значение выражения
 
 
 # 5
-def fraction(numerator: int, denomenator: int):
-    list_num_denomenator = [_ for _ in range(1, denomenator + 1)]
-    multiplicity_for_numerator = []
-    for number in list_num_denomenator:
+def fraction(numerator: int, denomenator: int):  # объявляем функцию с двумя параметрами (числитель и знаменатель)
+    list_num_denomenator: List[int] = [_ for _ in range(1, denomenator + 1)]
+    # переменная, которая ссылается на список чисел от 1 до числителя
+    multiplicity_for_numerator = []  # переменная, которая ссылается на пустой список
+    for number in list_num_denomenator:  # цикл: для каждого элемента в списке
         if numerator % number == 0 and denomenator % number == 0:
-            multiplicity_for_numerator.append(number)
+            # если числитель и знаменатель делятся на число без остатка
+            multiplicity_for_numerator.append(number)  # добавляем элемент в конец списка
     return numerator / multiplicity_for_numerator[-1], denomenator / multiplicity_for_numerator[-1]
+    # возвращаем числитель и знаменатель деленные на последнее число списка
 
 
 # 6
-def work_with_list(my_list: List):
+def work_with_list(my_list: List):  # объявляем функцию с одним параметром
     print(f'{my_list[::-1]} - список в перевернутом виде')
     print(f'{my_list[2:8]} - срез списка')
     print(f'{list(set(my_list))} - список без дубликатов')
@@ -115,20 +125,26 @@ def work_with_list(my_list: List):
 
 
 # 7
-def cuntRange(any_list, min_num, max_num):
-    for object_ in any_list:
-        if type(object_) == int:
-            interval_int = [i for i in range(min_num, max_num + 1)]
-            if object_ in interval_int:
+def cuntRange(any_list: List, min_num: int, max_num: int):  # объявляем функцию с тремя параметрами
+    for object_ in any_list:  # цикл: для каждого элемента в списке
+        if type(object_) == int:  # если тип объекта - целое число
+            interval_int: List[int] = [i for i in range(min_num, max_num + 1)]
+            # список, состоящий из элементов от минимального до максимального
+            if object_ in interval_int:  # условие: если объект в списке
                 print(f'{object_} - {any_list.count(object_)}', end=' ')
-        elif type(object_) == float:
-            interval_float = [float(i) for i in range(min_num, max_num + 1)]
+                # вывод в кансоль объект и количество его повторений
+        elif type(object_) == float:  # если тип объекта - число в плавающей точной
+            interval_float: List[float] = [float(i) for i in range(min_num, max_num + 1)]
+            # лист состоящий из чисел от минимального до максимального
             if min(interval_float) < object_ < max(interval_float):
+                # если число в диапазоне от минимального до максимального
                 print(f'{object_} - {any_list.count(object_)}', end=', ')
+                # вывод в кансоль числа и количества его повторений
 
 
 # 8
 def count_list_in_list(all_list: List) -> int:
+    # объявляем функцию с одним параметом, которая считает количество вложенных списков в списке
     count_lists: int = 0
     for _ in all_list:
         if type(_) == list:
@@ -137,23 +153,26 @@ def count_list_in_list(all_list: List) -> int:
 
 
 # 9
-def anagram(first_word: str, second_word: str):
+def anagram(first_word: str, second_word: str) -> bool:
+    # объявляем переменную с двумя параметрами, которая проверяет являются ли слова анаграммами
     if second_word == first_word[::-1]:
-        return 'Слова являются анаграммами'
+        return True
     else:
-        return 'Слова не являются анаграммами'
+        return False
 
 
 # 10
-def dict_mobile(string):
-    dict_mobile = {1: ('.', ',', '?', '!', ':'),
-                   2: ('A', 'B', 'C'), 3: ('D', 'E', 'F'), 4: ('G', 'H', 'I'), 5: ('J', 'K', 'L'), 6: ('M', 'N', 'O'),
-                   7: ('P', 'Q', 'R', 'S'), 8: ('T', 'U', 'V'), 9: ('W', 'X', 'Y', 'Z'), 0: (' ',)}
-    for letter in string.upper():
-        for keys, letter_comparison in dict_mobile.items():
-            for _ in letter_comparison:
-                if letter == _:
+def dict_mobile(string):  # объявляем функцию с одним параметром
+    dict_mobile: Dict[int:tuple] = {1: ('.', ',', '?', '!', ':'), 2: ('A', 'B', 'C'), 3: ('D', 'E', 'F'),
+                                    4: ('G', 'H', 'I'), 5: ('J', 'K', 'L'), 6: ('M', 'N', 'O'), 7: ('P', 'Q', 'R', 'S'),
+                                    8: ('T', 'U', 'V'), 9: ('W', 'X', 'Y', 'Z'), 0: (' ',)}
+    # словарь, содержащий пары ключ(цифра в телефоне)-замок(какие символы в нем находятся)
+    for letter in string.upper():  # цикл: для каждого элемента в строке (в верхнем регистре)
+        for keys, letter_comparison in dict_mobile.items():  # для каждого элемента в паре ключ - значение
+            for _ in letter_comparison:  # цикл: для каждого элемента в кортеже значений
+                if letter == _:  # если буква в строке = букве в картеже
                     print(str(keys) * (letter_comparison.index(_) + 1), end='')
+                    # вывод в кансоль ключа умноженного на индекс символа + 1
 
 
 # 1
