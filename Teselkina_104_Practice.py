@@ -175,6 +175,19 @@ def dict_mobile(string):  # объявляем функцию с одним па
                     # вывод в кансоль ключа умноженного на индекс символа + 1
 
 
+# 11
+def flattering(data_list: List) -> list:  # объявляем функцию с одним параметром
+    l_1 = []  # переменная, которая ссылается на пустой список
+    while data_list:  # цикл: пока в списке есть элементы
+        elem = data_list.pop()  # удаляем последний элемент в списке и присваиваем его переменной
+        if type(elem) == list:  # условие: если тип элемента список
+            data_list.extend(elem)  # объединение списков
+        else:  # альтернативное условие
+            l_1.append(elem)  # добавляем элемент в конец списка
+
+    return l_1[::-1]  # возвращаем список в обратном порядке
+
+
 # 1
 growth_: float = float(input('Введите рост в м: '))
 weight_: float = float(input('Введите вес в кг: '))
@@ -221,3 +234,7 @@ print(anagram(first_word_, second_word_))
 # 10
 string_ = input('Введите строку: ')
 dict_mobile(string_)
+
+# 11
+data_list_: List = [1, [2, 3], [4, [15, [6, 7]]], [[[8], 9], 10]]
+print(flattering(data_list_))
