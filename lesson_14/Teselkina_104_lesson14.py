@@ -1,4 +1,4 @@
-
+import numpy as np
 from typing import List
 
 
@@ -117,7 +117,30 @@ def main():  # объявляем функцию
     add_string_ = input('Введите строку: ')  # переменная, которая ссылается на вводимую с клавиатуры строку
     write_in_file(add_string_)  # вызываем функцию и передаем ей аргумент
 
-    read_file()  # вызываем следующую функцию 
+    read_file()  # вызываем следующую функцию
+
+
+# extra 2
+def magic_square(string: str, number: int) -> bool:  # объявляем функцию с двумя параметрами
+    list_: List = []  # переменная, которая ссылается на пустой список
+    for i in string.split(' '):  # для каждого элемента с списке из разделенной строки
+        list_.append(int(i))  # добавляем в конец списка элемент приведенный к типу данных - целое число
+
+    array = np.array(list_)  # переменная, которая ссылается на массив
+    end_array = array.reshape(number, number)  # создаем новый многомерный массив из одномерного (изменяя форму)
+    list_sum: List = []  # переменная, которая ссылается на пустой список
+
+    for i in range(0, number - 1):
+        list_sum.append(sum(end_array[i, :]))  # добавляем в конец списка сумму элементов строки
+        list_sum.append(sum(end_array[:, i]))  # добавляем в конец списка сумму элементов столбца
+
+    list_sum.append(sum(end_array.diagonal(axis1=0, axis2=1)))  # добавляем в конец списка сумму элементов диагонали
+    list_sum.append(sum(end_array.diagonal(axis1=1, axis2=0)))
+
+    if int(sum(list_sum) / len(list_sum)) == list_sum[0]:  # есои все элементы списка равны
+        return True
+    else:
+        return False
 
 
 # 1
@@ -142,3 +165,8 @@ def main():  # объявляем функцию
 
 # extra 1
 # main()
+
+# extra 2
+# number_: int = int(input('Введите одно число (количество столбцов и строк в матрице): '))
+# string_: str = input(f'Введите {number_ ** 2} чисел через пробел: ')
+# print(magic_square(string_, number_))
