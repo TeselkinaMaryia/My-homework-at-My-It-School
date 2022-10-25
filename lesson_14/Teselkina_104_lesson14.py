@@ -1,4 +1,4 @@
-import os
+
 from typing import List
 
 
@@ -75,44 +75,49 @@ def sort_array(arr: List) -> None:  # объявляем функцию с од�
 
 
 # extra 1
-def write_in_file(add_string):
-    with open('extra_1.txt', 'w', encoding='utf-8') as file:
+def write_in_file(add_string: str) -> None:  # объявляем функцию с одним параметром
+    with open('extra_1.txt', 'w', encoding='utf-8') as file:  # открываем файл для записи
         elements = sorted(add_string.split(' '), key=lambda x: x.isalpha())
-        for elem in elements:
-            if elem.isdigit():
-                file.write(elem + ' ')
+        # получаем из строки список и сортируем его, чтобы в начале были числа, а в конце строки
+        for elem in elements:  # для каждого элемента списка
+            if elem.isdigit():  # условие: если элемент - число
+                file.write(elem + ' ')  # записываем элемент через пробел
             elif elem.isalpha() and elements[elements.index(elem) - 1].isdigit():
-                file.write('\n')
+                # если элемент состоит из букв, а прошлый из чисел
+                file.write('\n')  # переносим каретку на следующую строку и добавляем элемент
                 file.write(elem + ' ')
-            elif elem != elements[-1]:
-                file.write(elem + ' ')
+            elif elem != elements[-1]:  # если элемент не последний в списке
+                file.write(elem + ' ')  # добавляем элементы через пробел
             else:
                 file.write(elem)
 
 
-def read_file():
-    file = open('extra_1.txt', encoding='utf-8')
-    try:
+def read_file():  # объявляем функцию без параметра
+    file = open('extra_1.txt', encoding='utf-8')  # открываем файл в режиме чтения
+    try:  # блок кода, где могут возникать исключения
         text_list = file.read().replace(' \n', ' ').split(' ')
-        for elem in text_list:
+        # посимвольное чтение текстового документа, делаем из строки список
+        for elem in text_list:  # цикл: для каждого элемента списка
             if elem.isdigit() and text_list[text_list.index(elem) + 1].isalpha():
+                # ищем индекс элемента, до которого до которого будут числа, а после которого строки
                 index_ = text_list.index(elem) + 1
 
-                new_list_int = [int(num) for num in text_list[:index_]]
-                new_list_int.sort()
-                new_list_str = sorted(text_list[index_:], key=len)
-                total = new_list_int + new_list_str
+                new_list_int: List[int] = [int(num) for num in text_list[:index_]]  # список из чисел
+                new_list_int.sort()  # сортируем по возрастанию
+                new_list_str: List = sorted(text_list[index_:], key=len)
+                # сортируем срез, сотоящий только из строк по длине
+                total = new_list_int + new_list_str  # объединяем списки
 
-                print(*total)
-    finally:
-        file.close()
+                print(*total)  # выводим распакованный список
+    finally:  # блок кода, который выполняется всегда
+        file.close()  # закрываем файл
 
 
-def main():
-    add_string_ = input('Введите строку: ')
-    write_in_file(add_string_)
+def main():  # объявляем функцию
+    add_string_ = input('Введите строку: ')  # переменная, которая ссылается на вводимую с клавиатуры строку
+    write_in_file(add_string_)  # вызываем функцию и передаем ей аргумент
 
-    read_file()
+    read_file()  # вызываем следующую функцию 
 
 
 # 1
@@ -136,4 +141,4 @@ def main():
 # sort_array(arr_)  # вызываем функцию
 
 # extra 1
-main()
+# main()
