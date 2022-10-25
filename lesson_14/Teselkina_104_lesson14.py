@@ -73,6 +73,48 @@ def sort_array(arr: List) -> None:  # объявляем функцию с од�
     finally:  # блок кода обязательный для выполнения
         file.close()  # закрываем файл
 
+
+# extra 1
+def write_in_file(add_string):
+    with open('extra_1.txt', 'w', encoding='utf-8') as file:
+        elements = sorted(add_string.split(' '), key=lambda x: x.isalpha())
+        for elem in elements:
+            if elem.isdigit():
+                file.write(elem + ' ')
+            elif elem.isalpha() and elements[elements.index(elem) - 1].isdigit():
+                file.write('\n')
+                file.write(elem + ' ')
+            elif elem != elements[-1]:
+                file.write(elem + ' ')
+            else:
+                file.write(elem)
+
+
+def read_file():
+    file = open('extra_1.txt', encoding='utf-8')
+    try:
+        text_list = file.read().replace(' \n', ' ').split(' ')
+        for elem in text_list:
+            if elem.isdigit() and text_list[text_list.index(elem) + 1].isalpha():
+                index_ = text_list.index(elem) + 1
+
+                new_list_int = [int(num) for num in text_list[:index_]]
+                new_list_int.sort()
+                new_list_str = sorted(text_list[index_:], key=len)
+                total = new_list_int + new_list_str
+
+                print(*total)
+    finally:
+        file.close()
+
+
+def main():
+    add_string_ = input('Введите строку: ')
+    write_in_file(add_string_)
+
+    read_file()
+
+
 # 1
 # print(sum_())  # вызываем функцию
 
@@ -92,3 +134,6 @@ def sort_array(arr: List) -> None:  # объявляем функцию с од�
 # arr_: List = [1, 2, 3, 4, 'len', 'sort', 'eat', 45, 678, 'breakfast', 31, 842, 'doll', 'cat', 5]
 # # переменная, которая ссылается на список объектов
 # sort_array(arr_)  # вызываем функцию
+
+# extra 1
+main()
