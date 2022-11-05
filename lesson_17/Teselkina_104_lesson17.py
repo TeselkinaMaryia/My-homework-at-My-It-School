@@ -31,4 +31,4 @@ class Method:  # создаем класс
         return len(self.str_dig)
 
 
-print(Method().string_digit())  # вызываем метод класса 
+print(Method().string_digit())  # вызываем метод класса
