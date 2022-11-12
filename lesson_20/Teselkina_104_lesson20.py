@@ -3,7 +3,7 @@ from typing import Dict, List, Any
 
 class CardDeck:  # declare a class
 
-    def __init__(self, card_dict: Dict):  # initializer accepts dict as a option
+    def __init__(self, card_dict: Dict):  # initializer accepts dict as an option
         self.dict: Dict[Any, str] = card_dict  # variable
         self.card_number: int = -1  # variable
 
