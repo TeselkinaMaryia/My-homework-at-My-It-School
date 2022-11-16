@@ -6,40 +6,10 @@
         "parameters": "2017 г., автомат, 1.6 л, бензин (гибрид), 130 000 км"
     },
     {
-        "href": "https://cars.av.by/kia/niro/100365354",
-        "price_byn": "54919.",
-        "price_uds": "22720$",
-        "parameters": "2017 г., автомат, 1.6 л, бензин (гибрид), 28 000 км"
-    },
-    {
-        "href": "https://cars.av.by/kia/niro/102176902",
-        "price_byn": "53178.",
-        "price_uds": "22000$",
-        "parameters": "2017 г., автомат, 1.6 л, бензин (гибрид), 88 031 км"
-    },
-    {
         "href": "https://cars.av.by/kia/niro/102617670",
         "price_byn": "58496.",
         "price_uds": "24200$",
         "parameters": "2018 г., автомат, 1.6 л, бензин, 88 200 км"
-    },
-    {
-        "href": "https://cars.av.by/kia/niro/102102208",
-        "price_byn": "47619.",
-        "price_uds": "19700$",
-        "parameters": "2016 г., автомат, 1.6 л, бензин (гибрид), 91 618 км"
-    },
-    {
-        "href": "https://cars.av.by/kia/niro/100802963",
-        "price_byn": "51849.",
-        "price_uds": "21450$",
-        "parameters": "2017 г., автомат, 1.6 л, бензин (гибрид), 109 000 км"
-    },
-    {
-        "href": "https://cars.av.by/kia/niro/102616954",
-        "price_byn": "87503.",
-        "price_uds": "36200$",
-        "parameters": "2021 г., автомат, электро, запас хода 420 км, 11 км"
     },
     {
         "href": "https://cars.av.by/kia/niro/100922707",
@@ -48,9 +18,39 @@
         "parameters": "2017 г., автомат, 1.6 л, бензин (гибрид), 48 280 км"
     },
     {
+        "href": "https://cars.av.by/kia/niro/100365354",
+        "price_byn": "54919.",
+        "price_uds": "22720$",
+        "parameters": "2017 г., автомат, 1.6 л, бензин (гибрид), 28 000 км"
+    },
+    {
         "href": "https://cars.av.by/kia/niro/102046957",
         "price_byn": "43268.",
         "price_uds": "17900$",
         "parameters": "2018 г., автомат, 1.6 л, бензин (гибрид), 56 327 км"
+    },
+    {
+        "href": "https://cars.av.by/kia/niro/102102208",
+        "price_byn": "47619.",
+        "price_uds": "19700$",
+        "parameters": "2016 г., автомат, 1.6 л, бензин (гибрид), 91 618 км"
+    },
+    {
+        "href": "https://cars.av.by/kia/niro/102176902",
+        "price_byn": "53178.",
+        "price_uds": "22000$",
+        "parameters": "2017 г., автомат, 1.6 л, бензин (гибрид), 88 031 км"
+    },
+    {
+        "href": "https://cars.av.by/kia/niro/102616954",
+        "price_byn": "87503.",
+        "price_uds": "36200$",
+        "parameters": "2021 г., автомат, электро, запас хода 420 км, 11 км"
+    },
+    {
+        "href": "https://cars.av.by/kia/niro/100802963",
+        "price_byn": "51849.",
+        "price_uds": "21450$",
+        "parameters": "2017 г., автомат, 1.6 л, бензин (гибрид), 109 000 км"
     }
 ]

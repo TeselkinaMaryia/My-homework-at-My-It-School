@@ -84,7 +84,7 @@ def main():  # function without parameters
         # write a headlines
 
     for information in list_of_dicts:  # cycle
-        with open(f'kia_niro_async.csv', 'a', newline='') as file:  # open file to add information
+        with open(f'kia_niro_async.csv', 'a', encoding='UTF-8', newline='') as file:  # open file to add information
             writer = csv.writer(file)  # create a writer object
 
             writer.writerow(
